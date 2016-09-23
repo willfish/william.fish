@@ -18,6 +18,6 @@ Bundler.require(*Rails.groups)
 
 module WilliamFish
   class Application < Rails::Application
-    config.action_mailer.default_url_options = { host: "smtp.gmail.com }
+    config.action_mailer.default_url_options = { host: "smtp.gmail.com" }
   end
 end
