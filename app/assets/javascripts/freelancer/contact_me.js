@@ -1,7 +1,7 @@
 $(function() {
-
+    var url = "contact";
     $("input,textarea").jqBootstrapValidation({
-        preventSubmit: true,
+        preventSubmit: false,
         submitError: function($form, event, errors) {
             // additional error messages or events
         },
@@ -9,7 +9,7 @@ $(function() {
             // Prevent spam click and default submit behaviour
             $("#btnSubmit").attr("disabled", true);
             event.preventDefault();
-            
+
             // get values from FORM
             var name = $("input#name").val();
             var email = $("input#email").val();
@@ -21,7 +21,7 @@ $(function() {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
             $.ajax({
-                url: "././mail/contact_me.php",
+                url: url,
                 type: "POST",
                 data: {
                     name: name,
@@ -41,7 +41,7 @@ $(function() {
                     $('#success > .alert-success')
                         .append('</div>');
 
-                    //clear all fields
+                    // Clear all fields
                     $('#contactForm').trigger("reset");
                 },
                 error: function() {
